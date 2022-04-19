@@ -13,31 +13,36 @@ import com.webpage.web.Modelos.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UsuarioController{
     @Autowired
-    private UserDao uDao;
+    private DaoImp uDao;
     
 
-    @RequestMapping(value = "prueba/{id}")
+    @RequestMapping(value = "api/prueba/{id}")
     public Usuario getUsuario(@PathVariable int id){
-        Usuario user = new Usuario(id);
-        
+        Usuario user = new Usuario();
+        user.setId(id);
         user.setUsername("pablo");
         user.setEmail("email");
-        user.setPassword("12345");
+        user.setPass("12345");
         
-        return user;
+         return user;
     } 
 
-    @RequestMapping(value = "usuarios")
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
     public List<Usuario> getUsuarios(){
+        
         return uDao.getUsuarios();
+    } 
+    @RequestMapping(value = "api/usuarios", method = RequestMethod.DELETE)
+    public void deleteUsuarios(int id){
+        uDao.delete(id);
       
     } 
-    
     // @RequestMapping(value = "prueba")
     // public Usuario editaUsuario(){
     //     Usuario user = new Usuario();

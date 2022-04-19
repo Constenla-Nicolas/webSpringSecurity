@@ -27,5 +27,11 @@ public class DaoImp implements UserDao{
        
       
     }
+
+    @Override
+    public void delete(int id) {
+        Usuario user = eManager.find(Usuario.class, id);
+        eManager.remove(user);
+    }
     
 }

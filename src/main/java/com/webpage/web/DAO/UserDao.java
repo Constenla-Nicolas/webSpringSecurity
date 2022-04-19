@@ -6,4 +6,5 @@ import com.webpage.web.Modelos.Usuario;
 
 public interface UserDao {
     public List<Usuario> getUsuarios();
+    public void delete(int id);
 }
