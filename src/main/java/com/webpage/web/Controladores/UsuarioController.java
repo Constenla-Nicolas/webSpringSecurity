@@ -22,16 +22,16 @@ public class UsuarioController{
     private DaoImp uDao;
     
 
-    @RequestMapping(value = "api/prueba/{id}")
-    public Usuario getUsuario(@PathVariable int id){
-        Usuario user = new Usuario();
-        user.setId(id);
-        user.setUsername("pablo");
-        user.setEmail("email");
-        user.setPass("12345");
+    // @RequestMapping(value = "api/prueba/{id}")
+    // public Usuario getUsuario(@PathVariable int id){
+    //     Usuario user = new Usuario();
+    //     user.setId(id);
+    //     user.setUsername("pablo");
+    //     user.setEmail("email");
+    //     user.setPass("12345");
         
-         return user;
-    } 
+    //      return user;
+    // } 
 
     @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
     public List<Usuario> getUsuarios(){
@@ -43,15 +43,12 @@ public class UsuarioController{
         uDao.delete(id);
       
     } 
-    // @RequestMapping(value = "prueba")
-    // public Usuario editaUsuario(){
-    //     Usuario user = new Usuario();
-    //     user.setUsername("pablo");
-    //     user.setEmail("email");
-    //     user.setPassword("12345");
+    @RequestMapping(value = "blank")
+    public void CrearGenero(){
         
-    //     return user;
-    // }
+        
+      //  return user;
+    }
     
     // @RequestMapping(value = "prueba")
     // public Usuario eliminaUsuario(){

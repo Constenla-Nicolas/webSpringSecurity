@@ -5,44 +5,58 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity //indica que es una entidad que hace referencia a la bdd
-@Table(name="users") //name = usuarios, la tabla de sql
+@Table(name="personaje") //name = usuarios, la tabla de sql
 public class Usuario {
        
-        public int id;
-        public String username;
-        public String pass;
-        public String email;
-        public String telefono;
+        public int idp;
+        public String nombre;
+        public String imagen;
+        public int edad;
+        public int peso;
+        public String historia;
 
         @Id
-        public int getId() {
-            return id;
+        public int getIdp() {
+            return idp;
         }
-        public void setId(int id) {
-            this.id = id;
+       
+        
+        
+        public int getEdad() {
+            return edad;
         }
-        public String getUsername() {
-            return username;
+        public int getPeso() {
+            return peso;
         }
-        public String getPass() {
-            return pass;
+        public String getHistoria() {
+            return historia;
         }
-        public String getEmail() {
-            return email;
+        public String getImagen() {
+            return imagen;
         }
-        public String getTelefono() {
-            return telefono;
+        public String getNombre() {
+            return nombre;
         }
-        public void setUsername(String username) {
-            this.username = username;
+        public void setEdad(int edad) {
+            this.edad = edad;
         }
-        public void setPass(String password) {
-            this.pass = password;
+        public void setHistoria(String historia) {
+            this.historia = historia;
         }
-        public void setEmail(String email) {
-            this.email = email;
+        public void setIdp(int idp) {
+            this.idp = idp;
         }
-        public void setTelefono(String telefono) {
-            this.telefono = telefono;
+        public void setImagen(String imagen) {
+            this.imagen = imagen;
         }
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+        public void setPeso(int peso) {
+            this.peso = peso;
+        }
+
+        
+        
+        
 }   

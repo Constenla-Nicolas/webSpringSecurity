@@ -37,17 +37,21 @@ $(document).ready(function() {
     }
       //llama al documento html, mas especifico al tbody del objeto con id dataTable para cambar el outerHTML, lo iguala a la tabla de usuarios
       document.querySelector('#dataTable tbody').outerHTML= userlist;
+      console.log("macri gato");
       ReaccionarBtn();
   }
   function ReaccionarBtn() {
       
   let btn =  document.getElementsByClassName("btn btn-danger btn-circle btn-sm");
-    if(btn){
-      btn.onclick = function() {
-        console.log(2)
-    alert(2)
-      }; 
+  var arr = Array.prototype.slice.call(btn)
+
+  for(var i in arr){
+    arr[i].onclick= function() {
+      //codigo aca
     }
+    i++;
+  }
+ 
   }
 
  
