@@ -33,12 +33,12 @@ public class UsuarioController{
     //      return user;
     // } 
 
-    @RequestMapping(value = "api/usuarios", method = RequestMethod.GET)
+    @RequestMapping(value = "usuarios", method = RequestMethod.GET)
     public List<Usuario> getUsuarios(){
         
         return uDao.getUsuarios();
     } 
-    @RequestMapping(value = "api/usuarios", method = RequestMethod.DELETE)
+    @RequestMapping(value = "usuarios", method = RequestMethod.DELETE)
     public void deleteUsuarios(int id){
         uDao.delete(id);
       

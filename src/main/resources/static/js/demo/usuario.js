@@ -2,15 +2,15 @@
 $(document).ready(function() {
   let userlist="";
   var respuesta="";
-  cargarusuarios();
+  cargarUsuarios();
   
   $('#dataTable').DataTable();
   
 
 
-  async function cargarusuarios() {
+  async function cargarUsuarios() {
      //fetch sirve para llamar a bdd, en este caso la de tomcat que es en la que corre la app con spring, get es para sacar datos, pull es para actualizar/carga datos
-      const request = await fetch('api/usuarios', {
+      const request = await fetch('usuarios', {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -18,28 +18,33 @@ $(document).ready(function() {
         },
         
       });
-      //guarda la respuesta del fetch hacia la url "usuarios" en una constante, esa respuesta es de objeto Usuario.java
+      //guarda la respuesta del fetch hacia la url "personajes" en una constante, esa respuesta es de objeto personaje.java
        respuesta = await request.json();
       console.log(respuesta);
 
   //    let userlist ="";
-      for(let usuario of respuesta){
-      //atributo con codigo html y datos sacados de UsuarioController.java
-      let usuariohtml='<tr ><td>'
-      +usuario.id+ '</td><td>'
-      +usuario.username+'</td><td>'
+      for(let user of respuesta){
+      //atributo con codigo html y datos sacados de personajeController.java
+      let userhtml='<tr ><td>'
+      +user.iduser+ '</td><td>'
+      +personaje.username+'</td><td>'
       +"Edinburgh"+'</td><td>'
       +"61"+'</td><td>'
       +"2011/04/25"+'</td><td>'
       +' <a href="#"   class="btn btn-danger btn-circle btn-sm"><i class="fas fa-trash"></i></a></td></tr>'
       
-      userlist+=usuariohtml;
+      userlist+=userhtml;
     }
-      //llama al documento html, mas especifico al tbody del objeto con id dataTable para cambar el outerHTML, lo iguala a la tabla de usuarios
+      //llama al documento html, mas especifico al tbody del objeto con id dataTable para cambar el outerHTML, lo iguala a la tabla de personajes
       document.querySelector('#dataTable tbody').outerHTML= userlist;
       console.log("macri gato");
       ReaccionarBtn();
   }
+
+  function BorrarPersonaje(params) {
+    
+  }
+
   function ReaccionarBtn() {
       
   let btn =  document.getElementsByClassName("btn btn-danger btn-circle btn-sm");
@@ -47,7 +52,8 @@ $(document).ready(function() {
 
   for(var i in arr){
     arr[i].onclick= function() {
-      //codigo aca
+      console.log("apretaste un boton")
+      BorrarPersonajes()
     }
     i++;
   }
